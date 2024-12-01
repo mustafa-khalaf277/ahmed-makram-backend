@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
        exam_results.Corrected,
        exam_results.exam_marks,
        users.name,
+       users.phone,
+       users.parent_phone,
        exams.marks,
        users.id
      FROM exam_results,exams,users
@@ -63,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     "data" => $exams_query->fetchAll(PDO::FETCH_ASSOC),
   )));
 
-}else {
+} else {
   http_response_code(405);
 
 }

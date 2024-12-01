@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     /*create new result*/
     $created_at = time();
     $create_result_records = $database->prepare("INSERT INTO
-   exam_results (user_id, exam_id, exam_marks, is_done,
+   exam_results(user_id, exam_id, exam_marks, is_done,
    created_at,total_questions,correct_answers,remaining_suggestions)VALUES
   (:user_id, :exam_id,0, false, :time,:total_questions,0,:count_of_suggestions)");
     $create_result_records->bindParam(":user_id", $user_id);
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       $questions = $examQuestions->fetchAll(PDO::FETCH_ASSOC);
       foreach ($questions as $question) {
         $data = Array();
-          $data["textAnswer"] = "";
+        $data["textAnswer"] = "";
         $data = json_encode($data);
         $question_marks = 0;
         $inserNewQuestionAnswer = $database->prepare("INSERT INTO

@@ -11,9 +11,9 @@ function course_paid($user_id, $course_id) {
   $userPayCourse->bindParam(":course_id", $course_id, PDO::PARAM_INT);
   $userPayCourse->execute();
   $data = $userPayCourse->fetch();
-  if ($data["id"] <= 0) {
-    HandleError("انت لست مشترك فى هذا الكورس", 204);
-  }
+ // if ($data["id"] <= 0) {
+//    HandleError("انت لست مشترك فى هذا الكورس", 204);
+//  }
 
 }
 
